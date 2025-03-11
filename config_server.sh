@@ -5,9 +5,7 @@ sudo apt upgrade -y
 
 #instalação do nodejs e npm
 sudo install -y nodejs npm
-echo Versão nodejs:
 node -v
-echo Versão npm:
 npm -v
 
 #Preparando Anbiente Develope!

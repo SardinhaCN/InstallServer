@@ -4,14 +4,14 @@ sudo apt update
 sudo apt upgrade -y
 
 #instalação do nodejs e npm
-sudo install -y nodejs npm
+sudo apt install -y nodejs npm
 node -v
 npm -v
 
 #Preparando Anbiente Develope!
-npm i -y -g pm2 express express-generator ejs nodemon
-
+sudo npm i -g -y pm2 express express-generator ejs nodemon
 #Montando o Projeto
 mkdir projeto
+ls -d
 cd ./projeto
-express --ejs --view=ejs --css=stylus --git
+sudo express --ejs --view=ejs --css=stylus --git

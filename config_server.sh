@@ -3,10 +3,20 @@
 sudo apt update
 sudo apt upgrade -y
 
+clear
+
+cd ..
+cd ..
+git clone https://github.com/SardinhaCN/InstallServer.git
+
+clear
+
 #instalação do nodejs e npm
 sudo apt install -y nodejs npm
 node -v
 npm -v
+
+clear
 
 #Preparando Anbiente Develope!
 sudo npm i -g -y pm2 express express-generator ejs nodemon
@@ -15,11 +25,14 @@ mkdir projeto
 ls -d
 cd ./projeto
 sudo express --ejs --view=ejs --css=stylus --git
-
 cd ..
 
-curl -fsSL https://get.casaos.io | sudo bash
 clear
+
+curl -fsSL https://get.casaos.io | sudo bash
+
+clear
+
 mv ./InstallServer/50-cloud-init.yaml ./etc/netplan/50-cloud-init.yaml
 netplan apply
 ip a | grep 192

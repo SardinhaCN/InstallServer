@@ -19,3 +19,5 @@ sudo express --ejs --view=ejs --css=stylus --git
 cd ..
 
 curl -fsSL https://get.casaos.io | sudo bash
+
+mv ./config_server/50-cloud-init.yaml ./

@@ -19,5 +19,7 @@ sudo express --ejs --view=ejs --css=stylus --git
 cd ..
 
 curl -fsSL https://get.casaos.io | sudo bash
-
-mv ./config_server/50-cloud-init.yaml ./
+clear
+mv ./config_server/50-cloud-init.yaml ./etc/netplan/50-cloud-init.yaml
+netplan apply
+ip a | grep 192

@@ -20,6 +20,6 @@ cd ..
 
 curl -fsSL https://get.casaos.io | sudo bash
 clear
-mv ./config_server/50-cloud-init.yaml ./etc/netplan/50-cloud-init.yaml
+mv ./InstallServer/50-cloud-init.yaml ./etc/netplan/50-cloud-init.yaml
 netplan apply
 ip a | grep 192

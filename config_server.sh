@@ -9,8 +9,7 @@ mostrar_menu() {
     echo "===== MENU DE APP ====="
     echo "1) Preparando Anbiente Develope NodeJS!"
     echo "2) Instalar o CasaOS!"
-    echo "3) Teste de velocidade da internet (speedtest-cli)"
-    echo "4) S-Tui - Monitor de CPU gráfico via terminal"
+    echo "3) Configurando IP Static!"
     echo "0) Sair"
     echo "==========================="
 }
@@ -21,7 +20,7 @@ read -p "Escolha uma opção: " opcao
 
 # Executa a opção selecionada
 case $opcao in
-    2)
+    1)
         clear
         echo "instalação do nodejs e npm"
         cd ..
@@ -38,7 +37,7 @@ case $opcao in
         sudo express --ejs --view=ejs --css=stylus --git
         cd ..
       ;;
-    3)
+    2)
         clear
         echo "Instalando CasaOS!"
         curl -fsSL https://get.casaos.io | sudo bash

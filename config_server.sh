@@ -3,7 +3,7 @@ clear
 echo "Atualizar dependencias"
 sudo apt update
 sudo apt upgrade -y
-
+clear
 # Função para exibir o menu
 mostrar_menu() {
     echo "===== MENU DE APP ====="

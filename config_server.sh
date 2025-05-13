@@ -1,47 +1,49 @@
 #!/bin/bash
 clear
-echo "Atualizando dependências..."
-sudo apt update
-sudo apt upgrade -y
+echo "Atualizando dependências do sistema..."
+sudo apt update && sudo apt upgrade -y
 clear
 
 # Função para exibir o menu
 mostrar_menu() {
-    echo "===== MENU DE APP ====="
-    echo "1) Preparar Ambiente NodeJS"
-    echo "2) Instalar CasaOS"
+    echo "======================================"
+    echo "        MENU DE APLICAÇÕES"
+    echo "======================================"
+    echo "1) Preparar ambiente Node.js"
+    echo "2) Instalar o CasaOS"
     echo "3) Configurar IP Estático"
     echo "0) Sair"
-    echo "========================="
+    echo "======================================"
 }
 
 # Mostrar menu
 mostrar_menu
-read -p "Escolha uma opção: " opcao
+read -rp "Escolha uma opção: " opcao
 
-# Executar opção
+# Executar ação de acordo com a opção
 case $opcao in
     1)
         clear
-        echo "Instalando NodeJS e NPM..."
+        echo "Instalando Node.js e NPM..."
         sudo apt install -y nodejs npm
 
         echo "Versões instaladas:"
         node -v
         npm -v
 
-        echo "Instalando pacotes globais..."
+        echo "Instalando pacotes globais com npm..."
         sudo npm install -g pm2 express express-generator ejs nodemon
 
-        echo "Criando projeto..."
-        mkdir -p ~/projeto
-        cd ~/projeto || exit
+        echo "Criando projeto Express..."
+        mkdir -p ~/projeto-node
+        cd ~/projeto-node || exit
         express --view=ejs --css=stylus --git
-        echo "Projeto criado em ~/projeto"
+
+        echo "Projeto criado em ~/projeto-node"
         ;;
     2)
         clear
-        echo "Instalando CasaOS..."
+        echo "Instalando CasaOS via script oficial..."
         curl -fsSL https://get.casaos.io | sudo bash
         ;;
     3)
@@ -50,9 +52,11 @@ case $opcao in
         cd ~ || exit
         git clone https://github.com/SardinhaCN/InstallServer.git
 
-        echo "Configurando IP Estático..."
+        echo "Aplicando configuração de IP estático..."
         sudo mv -i ~/InstallServer/50-cloud-init.yaml /etc/netplan/
         sudo netplan apply
+
+        echo "IP Estático configurado com sucesso!"
         ;;
     0)
         echo "Saindo..."
